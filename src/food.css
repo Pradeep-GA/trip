@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- Grid for the cards --- */
+.cuisine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
+  gap: 5rem;
+  margin-top: 20px;
+  padding: 20px 80px 0 80px;
+}
+
+/* --- Individual Cuisine Card --- */
+.cuisine-card {
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cuisine-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+/* --- Container for image and overlay --- */
+.cuisine-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.cuisine-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cuisine-card:hover .cuisine-image {
+  transform: scale(1.15) rotate(2deg);
+  border-radius: 24px;
+}
+
+.cuisine-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.cuisine-card:hover .cuisine-overlay {
+  opacity: 1;
+}
+
+.restaurant-list {
+  color: white;
+  text-align: center;
+  transform: translateY(30px);
+  transition: transform 0.5s 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cuisine-card:hover .restaurant-list {
+  transform: translateY(0);
+}
+
+.restaurant-list h4 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.restaurant-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.restaurant-list li {
+  margin-bottom: 0.75rem;
+}
+
+.restaurant-list a {
+  color: #f0f2f5;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.restaurant-list a:hover {
+  color: #fff;
+}
+
+.restaurant-list a::after {
+  content: '→';
+  position: absolute;
+  right: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.restaurant-list a:hover::after {
+  opacity: 1;
+  right: -25px;
+}
+
+.cuisine-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2d3748;
+  padding: 1.25rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* --- Responsive for tablets --- */
+@media (max-width: 1024px) {
+  .cuisine-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    padding: 20px 40px 0 40px;
+  }
+}
+
+/* --- Responsive for tablets and large phones --- */
+@media (max-width: 768px) {
+  .food-page-container {
+    padding: 1.5rem;
+  }
+  
+  .page-title {
+    font-size: 2.25rem;
+  }
+  
+  .cuisine-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 20px 20px 0 20px;
+  }
+}
+
+/* --- Responsive for small phones --- */
+@media (max-width: 480px) {
+  .cuisine-title {
+    font-size: 1.1rem;
+  }
+  
+  .restaurant-list h4 {
+    font-size: 1rem;
+  }
+  
+  .restaurant-list a {
+    font-size: 0.9rem;
+  }
+  
+  .cuisine-grid {
+    padding: 10px 10px 0 10px;
+    gap: 1.5rem;
+  }
+}

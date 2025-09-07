@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* --- Improvement 1: Using CSS Variables for a consistent design system --- */
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #555;
+  --primary-color: #007bff;
+  /* A nice blue for interactions */
+  --primary-color-hover: #0056b3;
+  --background-color: #ffffff;
+  --container-bg-color: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --font-family: 'Lato', sans-serif;
+}
+
+
+
+.home-container {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+  gap: 40px;
+  margin-left: 40px;
+}
+
+.home-content {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: var(--container-bg-color);
+  border-radius: var(--border-radius);
+  
+}
+
+.home-title {
+  font-size: 2.5rem;
+  /* 40px */
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.home-text {
+  color: var(--secondary-text-color);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+/* --- Improvement 3: Styling for the new Call to Action Button --- */
+.home-cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+  /* Space above the button */
+  align-self: flex-start;
+  /* Align button to the left */
+}
+
+.home-cta-button:hover {
+  background-color: var(--primary-color-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Improvement 4: Enhanced map container styling --- */
+.home-map-container {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+
+
+
+/* --- Responsive adjustments --- */
+@media (max-width: 960px) {
+  .home-container {
+    flex-direction: column;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    flex-direction: column;
+    display: flex;
+    justify-items: center;
+  }
+  .home-title {
+    font-size: 2rem;
+    /* 32px */
+  }
+
+  .home-content {
+    padding: 20px;
+  }
+}

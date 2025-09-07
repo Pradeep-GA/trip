@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+
+/* --- Grid for the cards --- */
+.places-grid {
+  display: grid;
+  /* This creates a responsive grid. On large screens, it will fit 3+ items. On smaller screens, it will wrap to 2 or 1. */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 20px;
+}
+
+/* --- Individual Place Card --- */
+.place-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Container for the video and its overlay --- */
+/* I've added this new container to correctly handle the border-radius and overlay */
+.place-video-container {
+  position: relative;
+  /* The key to applying border-radius to the video */
+  overflow: hidden;
+  border-radius: 20px;
+  /* As requested */
+  margin: 1rem;
+  aspect-ratio: 16 / 10;
+  /* Gives a nice portrait aspect ratio */
+}
+
+/* --- The video element --- */
+.place-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures video covers the container without distortion */
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover effect for the video */
+.place-card:hover .place-video {
+  transform: scale(1.1);
+}
+
+/* --- The overlay that appears on hover --- */
+.place-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: flex-end;
+  /* Aligns description to the bottom */
+  padding: 1.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  /* Hidden by default */
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+  /* Allows hover to pass through to video if needed */
+}
+
+/* Hover effect for the overlay */
+.place-card:hover .place-overlay {
+  opacity: 1;
+}
+
+/* --- The description text inside the overlay --- */
+.place-description {
+  color: white;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  margin: 0;
+  transform: translateY(20px);
+  /* Start slightly lower */
+  transition: transform 0.4s 0.1s ease;
+  /* Added a slight delay */
+}
+
+.place-card:hover .place-description {
+  transform: translateY(0);
+  /* Move to original position on hover */
+}
+
+/* --- The title below the video --- */
+/* This is now outside the video container to appear correctly below it */
+.place-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  padding: 0 1.5rem 1.5rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* --- Media query for smaller screens --- */
+@media (max-width: 768px) {
+  .places-page-container {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .places-grid {
+    gap: 1.5rem;
+  }
+}
