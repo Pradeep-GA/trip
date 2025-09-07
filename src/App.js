@@ -6,7 +6,7 @@ import {Topbar} from './components/topbar';
 import Map from './components/map';
 import Place from './places';
 import Food from './food';
-import Accomadation from './Accomadation/accomadation';
+import Accomadation from './accomadation';
 function App() {
   return (
     <Routes>

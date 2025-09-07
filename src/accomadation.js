@@ -1,35 +1,35 @@
 import "./accomadation.css";
-import { Topbar } from '../components/topbar';
+import { Topbar } from './components/topbar';
 
 const Accomadation = () => {
 const accommodationData = [
   {
-    image: "image/grandparkcitystay.jpg",
+    image: "https://gos3.ibcdn.com/91ce115ccc3f11e887650a7510c9dcdc.jpg",
     title: "Grand Park City Hall",
     link: "https://www.parkhotelgroup.com/grand-park-city-hall"
   },
   {
-    image: "image/holiday inn address singapore.jpg",
+    image: "https://digital.ihg.com/is/image/ihg/holiday-inn-express-singapore-6154135794-2x1",
     title: "Holiday Inn",
     link: "https://www.ihg.com/holidayinn/hotels/us/en/reservation"
   },
   {
-    image: "image/Grand Copthorne Waterfront.webp",
+    image: "https://gos3.ibcdn.com/23da04de287411ea9a7c0242ac110003.jpg",
     title: "Grand Copthorne Waterfront",
     link: "https://www.millenniumhotels.com/en/singapore/grand-copthorne-waterfront/"
   },
   {
-    image: "image/marinabayhotel.jpg",
+    image: "https://www.marinabaysands.com/content/dam/marinabaysands/more/more-masthead-desktop-1920x1080.jpg",
     title: "Marina Bay Sands",
     link: "https://www.marinabaysands.com/"
   },
   {
-    image: "image/marinabay.avif",
+    image: "https://gos3.ibcdn.com/0bd84a5a3fea11ecb57e0a58a9feac02.jpg",
     title: "ST Signature Chinatown",
-    link: "https://www.stsignature.com/st-signature-chinatown"
+    link: "https://stsignature.com/chinatown/"
   },
   {
-    image: "image/singaporetown.jpg",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/1f/f4/5d/facade.jpg?w=900&h=500&s=1",
     title: "Furama RiverFront",
     link: "https://www.furama.com/riverfront"
   }
