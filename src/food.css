@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
+.foodhead{
+    width: 100%;
+  background-image: url("https://singaporevisaonline.sg/wp-content/uploads/2022/11/Nasi-lemak-1024x683.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* --- Grid for the cards --- */
 .cuisine-grid {
   display: grid;
