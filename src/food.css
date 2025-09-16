@@ -2,7 +2,7 @@
 
 .foodhead{
     width: 100%;
-  background-image: url("https://singaporevisaonline.sg/wp-content/uploads/2022/11/Nasi-lemak-1024x683.webp");
+  background-image: url('https://singaporevisaonline.sg/wp-content/uploads/2022/11/Nasi-lemak-1024x683.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

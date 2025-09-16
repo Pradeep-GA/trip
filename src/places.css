@@ -3,7 +3,7 @@
 .places-page-container{
   
   width: 100%;
-  background-image: url("https://i.natgeofe.com/k/95d61645-a0c7-470f-b198-74a399dd5dfb/singapore-city_3x2.jpg");
+  background-image: url('https://i.natgeofe.com/k/95d61645-a0c7-470f-b198-74a399dd5dfb/singapore-city_3x2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
