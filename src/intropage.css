@@ -1,7 +1,6 @@
 .intro-page-container {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   position: relative;
   display: flex;
   justify-content: center;
@@ -19,13 +18,80 @@
   z-index: 1; 
 }
 
-.intro-page-video-overlay {
+.intro-page-background-image{
   position: absolute;
-  height: 100%;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: rgba(3, 3, 3, 0.4); 
-  z-index: 2; 
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: opacity 1s ease-in-out;
+  z-index: 2; /* Ensure it is above the video but below the content */
 }
+ /* --- Premium Loader Styles --- */
+      .loader-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+      }
+
+      .loader-title {
+        font-size: 70px;
+        font-weight: bold;
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 2px;
+      }
+
+      .loader-title span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: letter-fade-in-up 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+      }
+      
+      /* Staggered animation delays for each letter */
+      .loader-title span:nth-child(1) { animation-delay: 0.1s; }
+      .loader-title span:nth-child(2) { animation-delay: 0.2s; }
+      .loader-title span:nth-child(3) { animation-delay: 0.3s; }
+      .loader-title span:nth-child(4) { animation-delay: 0.4s; }
+      .loader-title span:nth-child(5) { animation-delay: 0.5s; }
+      .loader-title span:nth-child(6) { animation-delay: 0.6s; }
+      .loader-title span:nth-child(7) { animation-delay: 0.7s; }
+      .loader-title span:nth-child(8) { animation-delay: 0.8s; }
+      .loader-title span:nth-child(9) { animation-delay: 0.9s; }
+      .loader-title span:nth-child(10) { animation-delay: 1.0s; }
+
+
+      @keyframes letter-fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Fade-in animation for main content */
+      .content-fade-in {
+        animation: fadeInAnimation 1s ease-in-out;
+      }
+
+      @keyframes fadeInAnimation {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+
+
+
 
 /* --- Centered Content Styling --- */
 .intro-page-content {
@@ -65,6 +131,8 @@
   font-weight: 300;
   -webkit-text-stroke: 0.5px #fff;
   color: #fff;
+  cursor: pointer;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
 .intro-page-button {
@@ -113,4 +181,132 @@
     font-size: 1em;
     padding: 10px 24px;
   }
+}
+
+/* --- Planning Grid and Cards --- */
+.planning-grid {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);     /* 3 columns by default */
+  gap: 1.5rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .planning-grid {
+    grid-template-columns: repeat(2, 1fr);   /* 2 columns for tablets */
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .planning-grid {
+    grid-template-columns: 1fr;              /* 1 column for mobile */
+    max-width: 340px;
+    padding: 0 0.5rem;
+  }
+}
+
+.planning-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;      /* Use full width of grid cell */
+  min-width: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: planning-fadein 0.7s both;
+  background: #191b21;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.planning-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px);
+}
+
+.planning-card-image {
+  width: 100%;
+  height: 16rem;
+  max-height: 256px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* Shrink card image on mobile for better fit */
+@media (max-width: 600px) {
+  .planning-card-image {
+    height: 10rem;
+    max-height: 160px;
+  }
+}
+
+.planning-card:hover .planning-card-image {
+  transform: scale(1.1);
+}
+
+.planning-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.planning-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1.2rem 1rem;
+  width: 100%;
+  z-index: 1;
+  color: #fff;
+  box-sizing: border-box;
+  background: none;
+}
+
+.planning-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  word-break: break-word;
+}
+
+.planning-card-description {
+  font-size: 0.7rem;
+  color: #e0e7ef;
+  margin: 0;
+  word-break: break-word;
+}
+
+.planning-card-action {
+  margin-top: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+}
+
+.arrow-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.planning-card:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+@keyframes planning-fadein {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
